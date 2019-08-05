@@ -1,0 +1,56 @@
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../assets/images/bg-01.jpg');">
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+      <form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="enviarForm()">
+        <span class="login100-form-title p-b-49">
+          Hey, <br /><span style="font-size: 80%"> faça seu login ;)</span>
+        </span>
+        <div *ngIf="erroUsuario.length > 0">
+          Usuário não encontrado
+        </div>
+        <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+          <span class="label-input100">E-mail</span>
+          <input
+            class="input100"
+            type="text"
+            formControlName="email"
+            placeholder="Informe o seu usuário"
+          />
+          <span class="focus-input100" data-symbol="&#xf206;"></span>
+        </div>
+        <div
+          *ngIf="verificarValidacao && loginForm.get('email')?.errors?.email"
+          class="invalid-feedback"
+          [ngClass]="{
+            block: verificarValidacao && loginForm.get('email')?.errors?.email
+          }"
+        >
+          E-mail inválido
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <span class="label-input100">Senha</span>
+          <input
+            class="input100"
+            type="password"
+            formControlName="senha"
+            name="senha"
+            placeholder="Informe sua senha"
+          />
+          <span class="focus-input100" data-symbol="&#xf190;"></span>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn">
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="dropDownSelect1"></div>
